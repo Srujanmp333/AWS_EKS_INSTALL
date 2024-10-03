@@ -1,10 +1,15 @@
 terraform {
-
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.15.0"
+      version = "~> 5.0"
     }
+  }
+}
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1"
+}
 
     random = {
       source  = "hashicorp/random"
@@ -16,7 +21,7 @@ terraform {
     }
 
   }
-
+/*
 backend "remote" {
 		hostname = "app.terraform.io"
 		organization = "CloudQuickLabs"
@@ -26,8 +31,8 @@ backend "remote" {
 		}
 	}
 }
+*/
 
-/*
 data "aws_eks_cluster" "cluster" {
   name = module.eks.cluster_id
 }
@@ -39,12 +44,6 @@ provider "kubernetes" {
   host                   = data.aws_eks_cluster.cluster.endpoint
   token                  = data.aws_eks_cluster_auth.cluster.token
 
-}
-*/
-
-
-provider "aws" {
-  region = "us-west-2"
 }
 
 resource "random_string" "suffix" {
