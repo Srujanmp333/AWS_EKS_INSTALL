@@ -17,9 +17,9 @@ on:
       cli_config_credentials_token:
         description: 'cli config credentials token'
         required: true
-permissions:
-  id-token: write   # This is required for requesting the JWT
-  contents: read    # This is required for actions/checkout
+#permissions:
+  #id-token: write   # This is required for requesting the JWT
+  #contents: read    # This is required for actions/checkout
 jobs:
   apply-plan:
     runs-on: ubuntu-latest
